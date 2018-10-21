@@ -6,11 +6,11 @@ from .Model import Model
 
 class model(Model):
     def __init__(self):
-        self.guestentries = []
+        self.guestentries = dict()
 
     def select(self):
         """
-        Returns guestentries list of lists
+        Returns guest entries list of lists
         Each list in guestentries contains: name, email, date, message
         :return: List of lists
         """

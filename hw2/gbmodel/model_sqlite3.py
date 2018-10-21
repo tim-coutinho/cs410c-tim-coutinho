@@ -16,7 +16,8 @@ This can be created with the following SQL (see bottom of this file):
 from datetime import date
 from .Model import Model
 import sqlite3
-DB_FILE = 'entries.db'    # file for our Database
+DB_FILE = 'entries.db'  # File for our database
+
 
 class model(Model):
     def __init__(self):
@@ -24,9 +25,11 @@ class model(Model):
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
         try:
-            cursor.execute("select count(rowid) from guestbook")
+            cursor.execute('SELECT COUNT(rowid) FROM guestbook')
         except sqlite3.OperationalError:
-            cursor.execute("create table guestbook (name text, email text, signed_on date, message)")
+            cursor.execute('''
+                CREATE TABLE guestbook
+                (name text, email text, signed_on date, message)''')
         cursor.close()
 
     def select(self):
@@ -37,7 +40,7 @@ class model(Model):
         """
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM guestbook")
+        cursor.execute('SELECT * FROM guestbook')
         return cursor.fetchall()
 
     def insert(self, name, email, message):
@@ -49,10 +52,17 @@ class model(Model):
         :return: True
         :raises: Database errors on connection and insertion
         """
-        params = {'name':name, 'email':email, 'date':date.today(), 'message':message}
+        params = {
+            'name':name,
+            'email':email,
+            'date':date.today(),
+            'message':message
+        }
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
-        cursor.execute("insert into guestbook (name, email, signed_on, message) VALUES (:name, :email, :date, :message)", params)
+        cursor.execute('''
+            INSERT INTO guestbook (name, email, signed_on, message)
+            VALUES (:name, :email, :date, :message)''', params)
 
         connection.commit()
         cursor.close()
