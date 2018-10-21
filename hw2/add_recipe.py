@@ -2,9 +2,10 @@ from flask import redirect, request, url_for, render_template
 from flask.views import MethodView
 import gbmodel
 
-class Sign(MethodView):
+
+class AddRecipe(MethodView):
     def get(self):
-        return render_template('sign.html')
+        return render_template('add_recipe.html')
 
     def post(self):
         """
@@ -13,5 +14,7 @@ class Sign(MethodView):
         """
         model = gbmodel.get_model()
         args = request.form
-        model.insert(args['name'], args['email'], args['message'])
+        model.insert(
+            args['title'], args['author'], args['ingredients'].split('\r\n'),
+            int(args['time']), int(args['skill']), args['description'])
         return redirect(url_for('index'))

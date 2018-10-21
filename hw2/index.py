@@ -5,8 +5,10 @@ import gbmodel
 class Index(MethodView):
     def get(self):
         model = gbmodel.get_model()
-        entries = [
-            dict(name=row[0], email=row[1], signed_on=row[2], message=row[3])
+        print(4, model.select())
+        recipes = [
+            dict(title=row[0], author=row[1], ingredients=row[2],
+                 time=row[3], skill=row[4], description=row[5])
             for row in model.select()
         ]
-        return render_template('index.html', entries=entries)
+        return render_template('index.html', recipes=recipes)

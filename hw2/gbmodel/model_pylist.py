@@ -6,7 +6,7 @@ from .Model import Model
 
 class model(Model):
     def __init__(self):
-        self.guestentries = dict()
+        self.guestentries = []
 
     def select(self):
         """

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Add a Recipe</h2>
+<form action="{{ url_for('add_recipe') }}" method="post">
+	<label class="heading">Title:
+		<input type="text" name="title" required>
+	</label>
+	<br>
+	<label class="heading">Author:
+		<input type="text" name="author" required>
+	</label>
+	<br>
+    <label class="heading">Ingredients:
+    	<textarea rows="5" cols="50" wrap="off" placeholder="Separate ingredients by newlines" name="ingredients" required></textarea>
+    </label>
+    <br>
+	<label class="heading">Time (minutes):
+		<select name="time" required>
+			{% for i in range(5, 61, 5) %}
+			<option value="{{ i }}">
+				{{ i }}
+			</option>
+			{% endfor %}
+		</select>
+	</label>
+	<br>
+	<label class="heading">Skill:
+		<input type="number" placeholder="1 (easy) to 10 (difficult)" min="1" max="10" name="skill" required>
+	</label>
+	<br>
+	<label class="heading">Description:
+		<textarea rows="5" cols="50" wrap="off" name="description"></textarea>
+	</label>
+	<br>
+	<input type="submit" value="Add"></p>
+</form>
+{% endblock %}
