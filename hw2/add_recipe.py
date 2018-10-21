@@ -9,7 +9,7 @@ class AddRecipe(MethodView):
 
     def post(self):
         """
-        Accepts POST requests, and processes the form;
+        Accepts POST requests, and processes the form.
         Redirect to index when completed.
         """
         model = gbmodel.get_model()

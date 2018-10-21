@@ -13,7 +13,6 @@ class model(Model):
         Each list in recipes contains: title, author, ingredient list, time, skill, description
         :return: List of lists
         """
-        print(1, self.recipes)
         return [[
                  title,
                  self.recipes[title]['Author'],
@@ -37,7 +36,5 @@ class model(Model):
         params = dict(zip(
             ['Author', 'Ingredients', 'Time', 'Skill', 'Description'],
             [author, ingredients, time, skill, description]))
-        print(2, params)
         self.recipes[title] = params
-        print(3, self.recipes)
         return True
