@@ -1,39 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Recipe Book</h2>
-
-<h3>
-    <a href="{{ url_for('add_recipe') }}">
-        Add a recipe
+<h2>
+    Recipe Book
+</h2>
+<div id="links">
+    <a class="link" href="{{ url_for('add_recipe') }}">
+        Add a Recipe
     </a>
-</h3>
-<h3>
-    Recipes
-</h3>
-<div id="recipes">
-    {% if recipes != [] %}
-    {% for recipe in recipes %}
-    <div class="recipe">
-        <h4>
-            {{ recipe.title }} - {{ recipe.author }}
-        </h4>
-        Time: {{ recipe.time }} | Difficulty: {{ recipe.skill }}/10
-        <ul class="ingredient-list">
-            {% for ingredient in recipe.ingredients %}
-            <li class="ingredient">
-                {{ ingredient }}
-            </li>
-            {% endfor %}
-        </ul>
-        <div class="description">
-            {{ recipe.description }}
-        </div>
-    </div>
-    {% endfor %}
-    {% else %}
-    <p>
-        No recipes yet.
-    </p>
-    {% endif %}
+    <a class="link" href="{{ url_for('recipes') }}">
+        View Recipes
+    </a>
 </div>
 {% endblock %}

@@ -5,6 +5,7 @@ import flask
 from flask.views import MethodView
 from index import Index
 from add_recipe import AddRecipe
+from recipes import Recipes
 
 app = flask.Flask(__name__)  # Our Flask app
 
@@ -14,6 +15,10 @@ app.add_url_rule('/',
 
 app.add_url_rule('/add_recipe/',
                  view_func=AddRecipe.as_view('add_recipe'),
+                 methods=['GET', 'POST'])
+
+app.add_url_rule('/recipes/',
+                 view_func=Recipes.as_view('recipes'),
                  methods=['GET', 'POST'])
 
 if __name__ == '__main__':

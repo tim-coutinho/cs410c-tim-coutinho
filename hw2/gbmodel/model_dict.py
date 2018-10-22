@@ -3,6 +3,7 @@ Python dictionary model
 """
 from .Model import Model
 
+
 class model(Model):
     def __init__(self):
         self.recipes = dict()
@@ -35,13 +36,14 @@ class model(Model):
         for recipe in defaults:
             self.insert(
                 recipe['title'], recipe['author'],
-                recipe['ingredients'], int(recipe['time']),
-                int(recipe['skill']), recipe['description'])
+                recipe['ingredients'], recipe['time'],
+                recipe['skill'], recipe['description'])
 
     def select(self):
         """
         Returns recipe dictionary
-        Each list in recipes contains: title, author, ingredient list, time, skill, description
+        Each list in recipes contains: title, author, ingredient list, time,
+                                       skill, description
         :return: List of lists
         """
         return [[
@@ -55,7 +57,7 @@ class model(Model):
 
     def insert(self, title, author, ingredients, time, skill, description):
         """
-        Appends a new list of values representing new recipe into recipes
+        Appends a new list of values representing a new recipe into recipes
         :param title: String
         :param author: String
         :param ingredients: List
