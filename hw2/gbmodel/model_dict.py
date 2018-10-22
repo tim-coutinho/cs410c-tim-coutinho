@@ -6,6 +6,37 @@ from .Model import Model
 class model(Model):
     def __init__(self):
         self.recipes = dict()
+        defaults = [
+            {
+                'title': 'Default Recipe 1',
+                'author': 'Abraham Lincoln',
+                'ingredients': [
+                    'Ingredient 1',
+                    'Ingredient 2'
+                ],
+                'time': 15,
+                'skill': 3,
+                'description': 'Default description 1'
+            },
+            {
+                'title': 'Default Recipe 2',
+                'author': 'Tim Coutinho',
+                'ingredients': [
+                    'Ingredient 3',
+                    'Ingredient 4',
+                    'Ingredient 5',
+                    'Ingredient 6'
+                ],
+                'time': 60,
+                'skill': 9,
+                'description': 'Default description 2'
+            }
+        ]
+        for recipe in defaults:
+            self.insert(
+                recipe['title'], recipe['author'],
+                recipe['ingredients'], int(recipe['time']),
+                int(recipe['skill']), recipe['description'])
 
     def select(self):
         """

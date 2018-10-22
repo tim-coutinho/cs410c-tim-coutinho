@@ -12,14 +12,16 @@ form {
 	width: 400px;
 	border: 1px;
 }
-input[type=text], textarea {
+input, textarea {
 	margin: 0.5em 0;
 	padding: 0.5em;
 	font-size: 12px;
 	color: #777;
-	width: 200px;
 }
-.heading {
+input[type=submit] {
+	width: auto;
+}
+label {
 	font-weight: bold;
 }
 .page {
@@ -31,8 +33,9 @@ input[type=text], textarea {
 	padding: 0.1em;
 	width: 504px;
 }
-.entry {
-	margin-bottom: 2em;
-	padding-bottom: 2em;
-	border-bottom: 1px solid #888;
+.recipe {
+	border: 1px solid #888;
+}
+#skill {
+	width: 200px;
 }
