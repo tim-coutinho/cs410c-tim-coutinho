@@ -9,8 +9,13 @@ a:visited {
 	color: initial;
 }
 form {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	margin: 0.1em auto;
 	padding: 0.1em;
 	border: 1px;
@@ -25,19 +30,29 @@ input, textarea, select {
 input[type=submit] {
 	width: auto;
 	color: initial;
-	align-self: center;
+	-ms-flex-item-align: center;
+	    align-self: center;
 	padding: 0.5em;
 	font-size: 16px;
 	cursor: pointer;
 }
 label {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	font-weight: bold;
 }
 .page {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	margin: 0.1em auto;
 	padding: 0.1em;
 	width: 504px;
@@ -59,6 +74,8 @@ label {
 	padding: 0.5em;
 }
 #links {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 #label {
