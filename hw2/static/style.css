@@ -33,8 +33,13 @@ label {
 	padding: 0.1em;
 	width: 504px;
 }
+.description {
+	font-style: italic;
+}
 .recipe {
 	border: 1px solid #888;
+	padding: 1em;
+	margin-bottom: 0.5em;
 }
 #skill {
 	width: 200px;

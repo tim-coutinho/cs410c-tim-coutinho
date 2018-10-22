@@ -10,26 +10,30 @@
 <h3>
     Recipes
 </h3>
-{% if recipes != [] %}
-{% for recipe in recipes %}
-<div class="recipe">
-    <h4>
-        {{ recipe.title }} - {{ recipe.author }}
-    </h4>
-    Time: {{ recipe.time }} | Difficulty: {{ recipe.skill }}/10
-    <ul class="ingredient-list">
-        {% for ingredient in recipe.ingredients %}
-        <li class="ingredient">
-            {{ ingredient }}
-        </li>
-        {% endfor %}
-    </ul>
-    {{ recipe.description }}
+<div id="recipes">
+    {% if recipes != [] %}
+    {% for recipe in recipes %}
+    <div class="recipe">
+        <h4>
+            {{ recipe.title }} - {{ recipe.author }}
+        </h4>
+        Time: {{ recipe.time }} | Difficulty: {{ recipe.skill }}/10
+        <ul class="ingredient-list">
+            {% for ingredient in recipe.ingredients %}
+            <li class="ingredient">
+                {{ ingredient }}
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="description">
+            {{ recipe.description }}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>
+        No recipes yet.
+    </p>
+    {% endif %}
 </div>
-{% endfor %}
-{% else %}
-<p>
-    No recipes yet.
-</p>
-{% endif %}
 {% endblock %}
