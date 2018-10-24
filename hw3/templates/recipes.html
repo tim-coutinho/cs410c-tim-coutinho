@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Recipe Book</h2>
+<h3>
+    Recipes
+</h3>
+<div id="recipes">
+    {% if recipes != [] %}
+    {% for recipe in recipes %}
+    <div class="recipe">
+        <span id="title">
+            {{ recipe.title }}
+        </span>
+        -
+        <span id="author">
+            {{ recipe.author }}
+        </span>
+        <br>
+        Time: {{ recipe.time }} min | Difficulty: {{ recipe.skill }}/10
+        <ul class="ingredient-list">
+            {% for ingredient in recipe.ingredients %}
+            <li class="ingredient">
+                {{ ingredient }}
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="description">
+            {{ recipe.description }}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>
+        No recipes yet.
+    </p>
+    {% endif %}
+</div>
+{% endblock %}
