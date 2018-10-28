@@ -6,34 +6,9 @@ from .Model import Model
 
 class model(Model):
     def __init__(self):
-        self.recipes = dict()
-        defaults = [
-            {
-                'title': 'Default Recipe 1',
-                'author': 'Abraham Lincoln',
-                'ingredients': [
-                    'Ingredient 1',
-                    'Ingredient 2'
-                ],
-                'time': 15,
-                'skill': 3,
-                'description': 'Default description 1'
-            },
-            {
-                'title': 'Default Recipe 2',
-                'author': 'Tim Coutinho',
-                'ingredients': [
-                    'Ingredient 3',
-                    'Ingredient 4',
-                    'Ingredient 5',
-                    'Ingredient 6'
-                ],
-                'time': 60,
-                'skill': 9,
-                'description': 'Default description 2'
-            }
-        ]
-        for recipe in defaults:
+        super().__init__()  # Set defaults
+        self.recipes = dict()  # For storing recipes locally
+        for recipe in self.defaults:
             self.insert(
                 recipe['title'], recipe['author'],
                 recipe['ingredients'], recipe['time'],
@@ -60,7 +35,7 @@ class model(Model):
         Appends a new list of values representing a new recipe into recipes
         :param title: String
         :param author: String
-        :param ingredients: List
+        :param ingredients: String
         :param time: Integer
         :param skill: Integer
         :param description: String
