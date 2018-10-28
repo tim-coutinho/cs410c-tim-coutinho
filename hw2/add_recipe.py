@@ -15,6 +15,7 @@ class AddRecipe(MethodView):
         model = gbmodel.get_model()
         args = request.form
         model.insert(
-            args['title'], args['author'], args['ingredients'].split('\r\n'),
-            int(args['time']), int(args['skill']), args['description'])
+            args['title'], args['author'],
+            args['ingredients'].replace('\r', ''), int(args['time']),
+            int(args['skill']), args['description'])
         return redirect(url_for('index'))
