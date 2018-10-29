@@ -17,9 +17,7 @@ class model(Model):
 
     def select(self):
         """
-        Returns recipe dictionary
-        Each list in recipes contains: title, author, ingredient list, time,
-                                       skill, description
+        Returns a list containing ever recipe dictionary's key and values.
         :return: List of lists
         """
         return [[
@@ -33,7 +31,7 @@ class model(Model):
 
     def insert(self, title, author, ingredients, time, skill, description):
         """
-        Appends a new list of values representing a new recipe into recipes
+        Appends a new list of values representing a new recipe into recipes.
         :param title: String
         :param author: String
         :param ingredients: String

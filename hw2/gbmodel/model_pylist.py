@@ -1,29 +1,38 @@
 """
-Python list model
+Data is stored as a list with the each entry being a list containing the
+title, author, ingredients, time, skill, and description.
 """
 from datetime import date
 from .Model import Model
 
 class model(Model):
     def __init__(self):
-        self.guestentries = []
+        super().__init__()  # Set defaults
+        self.recipes = []
+        for recipe in self.defaults:
+            self.insert(
+                recipe['title'], recipe['author'],
+                recipe['ingredients'], recipe['time'],
+                recipe['skill'], recipe['description'])
 
     def select(self):
         """
-        Returns guest entries list of lists
-        Each list in guestentries contains: name, email, date, message
+        Returns all recipes.
         :return: List of lists
         """
-        return self.guestentries
+        return self.recipes
 
-    def insert(self, name, email, message):
+    def insert(self, title, author, ingredients, time, skill, description):
         """
-        Appends a new list of values representing new message into guestentries
-        :param name: String
-        :param email: String
-        :param message: String
+        Appends a new list of values representing a new recipe into recipes.
+        :param title: String
+        :param author: String
+        :param ingredients: String
+        :param time: Integer
+        :param skill: Integer
+        :param description: String
         :return: True
         """
-        params = [name, email, date.today(), message]
-        self.guestentries.append(params)
+        params = [title, author, ingredients, time, skill, description]
+        self.recipes.append(params)
         return True
