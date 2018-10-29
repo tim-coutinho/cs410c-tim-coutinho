@@ -1,5 +1,6 @@
 """
-Python dictionary model
+Data is stored in a dictionary with the title as the value and the keys
+author, ingredients, time, skill, and description.
 """
 from .Model import Model
 

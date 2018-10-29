@@ -1,5 +1,4 @@
 """
-A simple flask app to keep track of recipes.
 Data is stored in a SQLite database with the columns title, author,
 ingredients, time, skill, and description.
 """

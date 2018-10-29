@@ -1,5 +1,6 @@
 """
-A simple guestbook flask app.
+A simple flask app to keep track of recipes, using various forms of data
+storage.
 """
 import flask
 from flask.views import MethodView
@@ -7,16 +8,19 @@ from index import Index
 from add_recipe import AddRecipe
 from recipes import Recipes
 
-app = flask.Flask(__name__)  # Our Flask app
+app = flask.Flask(__name__)  # The Flask app
 
+# Landing page
 app.add_url_rule('/',
                  view_func=Index.as_view('index'),
                  methods=["GET"])
 
+# Path to add a recipe to the recipe list
 app.add_url_rule('/add_recipe/',
                  view_func=AddRecipe.as_view('add_recipe'),
                  methods=['GET', 'POST'])
 
+# Path to view all recipes
 app.add_url_rule('/recipes/',
                  view_func=Recipes.as_view('recipes'),
                  methods=['GET', 'POST'])
