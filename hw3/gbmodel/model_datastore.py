@@ -44,14 +44,28 @@ def from_datastore(entity):
 
 class model(Model):
     def __init__(self):
-        self.client = datastore.Client('plasma-kit-218105')
+        self.client = datastore.Client('plasma-kit-218105')  # My project ID
 
     def select(self):
+        """
+        Returns a list containing every recipe's values.
+        :return: List of lists
+        """
         query = self.client.query(kind='Recipe')
         entities = list(map(from_datastore, query.fetch()))
         return entities
 
     def insert(self, title, author, ingredients, time, skill, description):
+        """
+        Appends a new list of values representing a new recipe into recipes.
+        :param title: String
+        :param author: String
+        :param ingredients: String
+        :param time: Integer
+        :param skill: Integer
+        :param description: String
+        :return: True
+        """
         key = self.client.key('Recipe')
         rev = datastore.Entity(key)
         rev.update({
@@ -60,7 +74,7 @@ class model(Model):
             'ingredients': ingredients,
             'time': time,
             'skill': skill,
-            'description' : description
+            'description': description
         })
         self.client.put(rev)
         return True

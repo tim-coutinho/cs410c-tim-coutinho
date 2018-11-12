@@ -17,7 +17,7 @@ class model(Model):
 
     def select(self):
         """
-        Returns a list containing ever recipe dictionary's key and values.
+        Returns a list containing every recipe dictionary's key and values.
         :return: List of lists
         """
         return [[
