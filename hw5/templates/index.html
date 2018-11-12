@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>
+    Recipe Book
+</h2>
+<div id="links">
+    <a class="link" href="{{ url_for('add_recipe') }}">
+        Add a Recipe
+    </a>
+    <a class="link" href="{{ url_for('recipes') }}">
+        View Recipes
+    </a>
+</div>
+{% endblock %}
