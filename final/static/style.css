@@ -1,0 +1,95 @@
+body {
+	font-family: Arial;
+	font-size: 20px;
+}
+a, h1, h2 {
+	text-decoration: none;
+}
+a:visited {
+	color: initial;
+}
+form {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	margin: 0.1em auto;
+	padding: 0.1em;
+	border: 1px;
+}
+input, textarea, select {
+	margin: 0.5em 0;
+	padding: 0.5em;
+	font-size: 12px;
+	color: #777;
+	width: 90%;
+}
+input[type=submit] {
+	width: auto;
+	color: initial;
+	-ms-flex-item-align: center;
+	    align-self: center;
+	padding: 0.5em;
+	font-size: 16px;
+	cursor: pointer;
+}
+label {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-weight: bold;
+}
+.page {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	margin: 0.1em auto;
+	padding: 0.1em;
+	width: 504px;
+}
+.description {
+	font-style: italic;
+}
+.recipe {
+	border: 1px solid #BBBBBB;
+	padding: 1em;
+	margin-bottom: 0.5em;
+	border-radius: 4px;
+	box-shadow: 4px 4px 2px 0px #c2c2c2;
+}
+.link {
+	background-color: #cccccc;
+	border: 1px solid #888;
+	margin: 0.5em;
+	padding: 0.5em;
+}
+#links {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+#label {
+	width: 35%;
+}
+#recipes {
+	width: 100%;
+}
+#title {
+	font-size: 20px;
+}
+#author {
+	font-size: 18px;
+}
+#title, #author {
+	font-weight: bold;
+}
