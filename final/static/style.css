@@ -93,3 +93,6 @@ label {
 #title, #author {
 	font-weight: bold;
 }
+#tooltip {
+	float: right;
+}
