@@ -17,18 +17,20 @@ class AddRecipe(MethodView):
         """
         model = gbmodel.get_model()
         args = request.form
+        # Ingredient list stored as a string, change to a list
         ingredients = args['ingredients'].split('\r\n')
+        # API endpoint
         url = 'https://trackapi.nutritionix.com/v2/natural/nutrients'
         query = json.dumps({'query': ', '.join(ingredients)})
         headers = {
-            'x-app-key': '4a900d29f6416233ec26668100c24dc2',
             'Content-Type': 'application/json',
+            'x-app-key': '4a900d29f6416233ec26668100c24dc2',
             'x-app-id': '0f3a292c'
         }
         res = requests.post(url, headers=headers, data=query)
-        if res.ok:
+        if res.ok:  # 200 status code
             tooltip = self.get_nutrition(json.loads(res.text)['foods'])
-        else:
+        else:  # All others
             tooltip = 'Error acquiring nutritional information.'
 
         model.insert(
@@ -37,6 +39,12 @@ class AddRecipe(MethodView):
         return redirect(url_for('index'))
 
     def get_nutrition(self, foods):
+        """
+        Calculate the total calories, protein, carbs, and fat in a list
+        of ingredients.
+        :param foods: List
+        :return: String
+        """
         calories = protein = carbs = fat = 0
         for food in foods:
             calories += food['nf_calories']
@@ -44,4 +52,5 @@ class AddRecipe(MethodView):
             carbs += food['nf_total_carbohydrate']
             fat += food['nf_total_fat']
 
-        return 'Calories: {}\nProtein: {}g\nCarbs: {}g\nFat: {}g'.format(round(calories), round(protein), round(carbs), round(fat))
+        return 'Calories: {}\nProtein: {}g\nCarbs: {}g\nFat: {}g'.format(
+            round(calories), round(protein), round(carbs), round(fat))

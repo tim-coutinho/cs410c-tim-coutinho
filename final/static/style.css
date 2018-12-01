@@ -95,4 +95,5 @@ label {
 }
 #tooltip {
 	float: right;
+	cursor: default;
 }
