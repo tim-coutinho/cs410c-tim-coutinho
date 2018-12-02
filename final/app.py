@@ -6,6 +6,7 @@ from flask.views import MethodView
 from index import Index
 from add_recipe import AddRecipe
 from recipes import Recipes
+from translate_lang import TranslateLanguage
 
 app = flask.Flask(__name__)  # Our Flask app
 
@@ -19,6 +20,10 @@ app.add_url_rule('/add_recipe/',
 
 app.add_url_rule('/recipes/',
                  view_func=Recipes.as_view('recipes'),
+                 methods=['GET', 'POST'])
+
+app.add_url_rule('/translate/',
+                 view_func=TranslateLanguage.as_view('translate'),
                  methods=['GET', 'POST'])
 
 if __name__ == '__main__':
