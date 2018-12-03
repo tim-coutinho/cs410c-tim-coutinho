@@ -8,12 +8,12 @@ class TranslateLanguage(MethodView):
         model = gbmodel.get_model()
 
         recipes = [
-            dict(title = row[0],
-            author = row[1],
-            ingredients = row[2],
+            dict(title = self.translate_recipe(row[0]),
+            author = self.translate_recipe(row[1]),
+            ingredients = self.translate_recipe(row[2]),
             time = row[3],
             skill = row[4],
-            description = row[5])
+            description = self.translate_recipe(row[5]))
             for row in model.select()
         ]
         text = "hello"
