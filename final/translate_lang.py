@@ -36,7 +36,7 @@ class TranslateLanguage(MethodView):
             text)
         return translation.get('translatedText')
 
-    def translate_ingredients(self, texts, dest):
+    def translate_ingredients(self, texts):
         """
         Translates the detected language and returns only the text result
         :param text: String
