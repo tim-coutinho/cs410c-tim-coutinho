@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Recipe Book</h2>
+<h2>Libro de Recetas</h2>
 <h3>
-    Recipes
+    Recetas
 </h3>
 <div id="recipes">
     {% if recipes != [] %}
@@ -19,7 +19,7 @@
             ?
         </span>
         <br>
-        Time: {{ recipe.time }} min | Difficulty: {{ recipe.skill }}/10
+        Hora: {{ recipe.time }} min | Dificultad: {{ recipe.skill }}/10
         <ul class="ingredient-list">
             {% for ingredient in recipe.ingredients %}
             <li class="ingredient">

@@ -7,7 +7,6 @@ class TranslateLanguage(MethodView):
     def get(self):
         model = gbmodel.get_model()
 
-        #Pull recipies from model backend
         recipes = [
             dict(title=self.translate_recipe(row[0]),
             author=row[1],
@@ -22,7 +21,7 @@ class TranslateLanguage(MethodView):
 
     def translate_recipe(self, text):
         """
-        Translates the detected language and returns only the text result in spanish
+        Translates the detected language and returns the translatedText result in spanish
         :param text: String
         """
         translate_client = translate.Client(target_language='es')
