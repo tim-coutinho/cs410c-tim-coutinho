@@ -10,7 +10,7 @@ class TranslateLanguage(MethodView):
         recipes = [
             dict(title=self.translate_recipe(row[0]),
             author=row[1],
-            ingredients=row[2].split('\n'),
+            ingredients=translate_recipe(row[2].split('\n')),
             time=row[3],
             skill=row[4],
             description=self.translate_recipe(row[5]),
