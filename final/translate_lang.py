@@ -17,23 +17,22 @@ class TranslateLanguage(MethodView):
             for row in model.select()
         ]
         text = "hello"
-        print(self.translate_recipe(text, dest='ko'))
+        print(self.translate_recipe(text))
         return render_template('recipe_translate.html', recipes=recipes)
 
     def post(self):
         """
         """
 
-    def translate_recipe(self, text, dest):
+    def translate_recipe(self, text):
         """
         Translates the detected language and returns only the text result
         :param text: String
         :param dest: String
         """
-        translate_client = translate.Client(project=project, credentials=credentials)
+        translate_client = translate.Client(target_language='es')
         translation = translate_client.translate(
-            "text",
-            target_language=dest)
+            text)
         return translation.text
 
     def translate_ingredients(self, texts, dest):
