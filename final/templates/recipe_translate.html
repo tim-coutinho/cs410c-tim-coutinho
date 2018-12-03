@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Translated Recipe Book</h2>
+<h2>Recipe Book</h2>
 <h3>
     Recipes
 </h3>
@@ -14,6 +14,9 @@
         -
         <span id="author">
             {{ recipe.author }}
+        </span>
+        <span id="tooltip" title="{{ recipe.tooltip }}">
+            ?
         </span>
         <br>
         Time: {{ recipe.time }} min | Difficulty: {{ recipe.skill }}/10

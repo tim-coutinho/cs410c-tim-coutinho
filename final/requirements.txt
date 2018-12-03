@@ -1,4 +1,4 @@
 flask
 uwsgi
 requests
--e git+https://github.com/BoseCorp/py-googletrans.git#egg=googletrans
+google-cloud-translate
