@@ -1,4 +1,4 @@
 flask
-uwsgi
+gunicorn
 requests
 google-cloud-translate
