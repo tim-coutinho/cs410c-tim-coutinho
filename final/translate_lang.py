@@ -30,7 +30,7 @@ class TranslateLanguage(MethodView):
         :param text: String
         :param dest: String
         """
-        translate_client = translate.Client()
+        translate_client = translate.Client(project=project, credentials=credentials)
         translation = translate_client.translate(
             "text",
             target_language=dest)
