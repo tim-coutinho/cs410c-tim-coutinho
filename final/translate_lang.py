@@ -7,16 +7,20 @@ class TranslateLanguage(MethodView):
     def get(self):
         model = gbmodel.get_model()
 
+        # recipes = [
+        #     dict(title = self.translate_recipe(row[0]),
+        #     author = row[1],
+        #     ingredients = self.translate_ingredients(row[2].split('\n')),
+        #     time = row[3],
+        #     skill = row[4],
+        #     description = self.translate_recipe(row[5]), tooltip=row[6])
+        #     for row in model.select()
+        # ]
         recipes = [
-            dict(title = self.translate_recipe(row[0]),
-            author = row[1],
-            ingredients = self.translate_ingredients(row[2].split('\n')),
-            time = row[3],
-            skill = row[4],
-            description = self.translate_recipe(row[5]), tooltip=row[6])
+            dict(title=row[0], author=row[1], ingredients=row[2].split('\n'),
+                 time=row[3], skill=row[4], description=row[5], tooltip=row[6])
             for row in model.select()
         ]
-
         return render_template('recipe_translate.html', recipes=recipes)
 
     def post(self):
