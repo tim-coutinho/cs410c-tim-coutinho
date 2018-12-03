@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Libro de Recetas</h2>
+<h3>
+    Recetas
+</h3>
+<div id="recipes">
+    {% if recipes != [] %}
+    {% for recipe in recipes %}
+    <div class="recipe">
+        <span id="title">
+            {{ recipe.title }}
+        </span>
+        -
+        <span id="author">
+            {{ recipe.author }}
+        </span>
+        <span id="tooltip" title="{{ recipe.tooltip }}">
+            ?
+        </span>
+        <br>
+        Hora: {{ recipe.time }} min | Dificultad: {{ recipe.skill }}/10
+        <ul class="ingredient-list">
+            {% for ingredient in recipe.ingredients %}
+            <li class="ingredient">
+                {{ ingredient.get('translatedText') }}
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="description">
+            {{ recipe.description }}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>
+        No recipes yet.
+    </p>
+    {% endif %}
+</div>
+{% endblock %}

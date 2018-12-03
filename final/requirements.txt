@@ -1,3 +1,5 @@
 flask
 uwsgi
 requests
+google-auth-oauthlib
+google-cloud-translate
