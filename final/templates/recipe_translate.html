@@ -23,7 +23,7 @@
         <ul class="ingredient-list">
             {% for ingredient in recipe.ingredients %}
             <li class="ingredient">
-                {{ ingredient }}
+                {{ ingredient.get('translatedText') }}
             </li>
             {% endfor %}
         </ul>
