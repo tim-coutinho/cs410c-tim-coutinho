@@ -13,7 +13,7 @@ class TranslateLanguage(MethodView):
             ingredients = self.translate_recipe(row[2].split('\n')),
             time = row[3],
             skill = row[4],
-            description = self.translate_recipe(row[5]))
+            description = self.translate_recipe(row[5]), tooltip=row[6])
             for row in model.select()
         ]
 
