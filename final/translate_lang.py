@@ -10,7 +10,7 @@ class TranslateLanguage(MethodView):
         recipes = [
             dict(title = self.translate_recipe(row[0]),
             author = row[1],
-            ingredients = self.translate_recipe(row[2]),
+            ingredients = self.translate_ingredients(row[2]),
             time = row[3],
             skill = row[4],
             description = self.translate_recipe(row[5]))
@@ -42,6 +42,10 @@ class TranslateLanguage(MethodView):
         :param text: String
         :param dest: String
         """
+        translate_client = translate.Client(target_language='es')
+        for text in texts:
+            translation = translate_client.translate(text)
+        return translation.get('translatedText')
         # translator = Translator()
         # for text in texts:
         #     translated = translator.translate(text, dest)
