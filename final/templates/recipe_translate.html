@@ -19,7 +19,7 @@
             ?
         </span>
         <br>
-        Time: {{ recipe.time }} min | Difficulty: {{ recipe.skill }}/10
+        Time: {{ recipe.time }} {{ cat.minute }} | Difficulty: {{ recipe.skill }}/10
         <ul class="ingredient-list">
             {% for ingredient in recipe.ingredients %}
             <li class="ingredient">

@@ -9,16 +9,17 @@ class TranslateLanguage(MethodView):
 
         recipes = [
             dict(title = self.translate_recipe(row[0]),
-            author = self.translate_recipe(row[1]),
+            author = row[1],
             ingredients = self.translate_recipe(row[2]),
             time = row[3],
             skill = row[4],
             description = self.translate_recipe(row[5]))
             for row in model.select()
         ]
-        text = "hello"
-        print(self.translate_recipe(text))
-        return render_template('recipe_translate.html', recipes=recipes)
+        cat = [
+            dict(minute = "Minute")
+        ]
+        return render_template('recipe_translate.html', recipes=recipes, cat=cat)
 
     def post(self):
         """
