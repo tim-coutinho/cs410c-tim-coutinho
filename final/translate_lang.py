@@ -33,7 +33,7 @@ class TranslateLanguage(MethodView):
         translate_client = translate.Client(target_language='es')
         translation = translate_client.translate(
             text)
-        return translation.text
+        return translation.get('translatedText')
 
     def translate_ingredients(self, texts, dest):
         """
