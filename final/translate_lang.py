@@ -17,7 +17,7 @@ class TranslateLanguage(MethodView):
         #     for row in model.select()
         # ]
         recipes = [
-            dict(title=row[0], author=row[1], ingredients=self.translate_ingredients(row[2].split('\n')),
+            dict(title=row[0], author=row[1], ingredients=self.translate_ingredients(row[2]).split('\n'),
                  time=row[3], skill=row[4], description=row[5], tooltip=row[6])
             for row in model.select()
         ]
